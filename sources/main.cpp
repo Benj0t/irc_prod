@@ -6,7 +6,7 @@
 /*   By: bemoreau <bemoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 12:46:43 by bemoreau          #+#    #+#             */
-/*   Updated: 2022/03/12 02:13:59 by bemoreau         ###   ########.fr       */
+/*   Updated: 2022/03/12 02:19:16 by bemoreau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,12 @@ int main()
 {
 	try
 	{
-		if (ac != 3)
-			throw Server::badArgumentsCountException();
-
 		Server ircServer;
 		signal(SIGQUIT, &shutdownServer);
 		signal(SIGINT, &shutdownServer);
 		signal(SIGPIPE, SIG_IGN);
 		data = (void *)&ircServer;
-		ircServer.launchServer("3000", "42");
+		ircServer.launchServer((char *)"3000", (char *)"42");
 	}
 	catch(const std::exception& e)
 	{

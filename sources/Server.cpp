@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Server.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psemsari <psemsari@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bemoreau <bemoreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 12:48:51 by bemoreau          #+#    #+#             */
-/*   Updated: 2022/03/06 11:55:04 by psemsari         ###   ########.fr       */
+/*   Updated: 2022/03/12 02:17:42 by bemoreau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,10 +182,6 @@ void	Server::tryListen(void) {
 
 void	Server::runSelect(void) {
 
-	struct timeval timeout;
-
-	timeout.tv_sec = 0;
-	timeout.tv_usec = 0;
 	if (select(_fdMax + 1, &_readFds, &_writeFds, NULL, NULL) == -1) {
 		std::cerr << "select" << std::endl;
 		exit(FAILURE_SELECT);
